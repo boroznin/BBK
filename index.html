@@ -45,20 +45,31 @@
 	<script async="" type="text/javascript" src="./files/pb208261.js"></script>
 	<script async="" type="text/javascript" src="./files/common_402.js"></script>
 	<link rel="alternate" hreflang="x-default" href="http://avto-nomer.ru/ru/series-BBK134">
+
+
+
+
+
 </head>	
 
 <body>
 
 
- <div class="wrapper">
+
+
+
+<label>Search:
+<input id="myInput" type="text" placeholder="...">
+</label>
 
 
 
   <!--=== Content Part ===-->
 
 <div class="table-responsive">
-   <table class="table table-bordered table-condensed">
-	<tbody>
+   <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+   	
+	<tbody id="myTable">
 	 <tr>
     <td class="text-center"><img src="./files/11966079.jpg"><br>001</td>
 		<td class="text-center"><img src="./files/11226200.jpg"><br>002</td>
@@ -1289,6 +1300,18 @@
 	App.init();
 	});
 	</script>
+
+<!-- Datatables initialization -->
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 	
 
